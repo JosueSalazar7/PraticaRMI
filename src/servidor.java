@@ -10,7 +10,10 @@ public class servidor {
 
             //Crear y obtener registro RMI en el puerto específico
             Registry registro = LocateRegistry.createRegistry(1234);
-            
+
+            //Vincular la implmentación remota al registro con un nombre epecifico
+            registro.rebind("Cliente Remoto", objetoRemoto);
+            System.out.println("Servidor remoto iniciadp....");
         }catch (RemoteException e){
 
             e.printStackTrace();
